@@ -1,0 +1,87 @@
+---
+import Circleirregular from "../icons/circleirregular.astro";
+import CheckIcon from "../icons/checkicon.astro";
+const { title, description } = Astro.props;
+const ADVANTAGES = [
+    { description: "Si planeas viajar necesitas comunicarte." },
+    {
+        description:
+            "Si siempre te pareció romantico el francés ahora podras hablarlo.",
+    },
+    {
+        description:
+            "Si siempre te gustó la comida italiana y su música, te encantará hablar el idioma.",
+    },
+    { description: "Disfruta las películas en inglés en su idioma original." },
+];
+---
+
+<section>
+    <div class="background">
+        <Circleirregular width="100%" height="100%" fill="#456A89" />
+    </div>
+    <div class="content">
+        <div class="title">
+            <h1>{title}</h1>
+        </div>
+        <div class="advantages">
+            {
+                ADVANTAGES.map((adv) => (
+                    <>
+                        <li>
+                            <CheckIcon
+                                width="24"
+                                height="24"
+                                fill="var(--white)"
+                            />
+                            {adv.description}
+                        </li>
+                    </>
+                ))
+            }
+            <ul class="advantages-ul"></ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2em;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 550px;
+        opacity: 0.6;
+        z-index: -1;
+    }
+    .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+    .title {
+        margin-bottom: 1em;
+    }
+    .advantages {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style: none;
+        padding: 0;
+    }
+    .advantages li {
+        margin-bottom: 1em;
+    }
+</style>
