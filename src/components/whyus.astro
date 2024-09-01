@@ -1,0 +1,118 @@
+---
+import Circle from "../icons/circle.astro";
+const WHYUS = [
+    {
+        number: "1",
+        name: "Maestro Particular",
+        color: "#456A89",
+        description:
+            "Para aprender un nuevo idioma necesitas de un maestro que te dedique tiempo.",
+    },
+    {
+        number: "2",
+        name: "Arma tu horario a tu gusto",
+        color: "#894545",
+        description:
+            "Para aprender un nuevo idioma necesitas de un maestro que te dedique tiempo.",
+    },
+    {
+        number: "3",
+        name: "Clases Online",
+        color: "#458956",
+        description:
+            "Aprender italiano puede abrirte puertas inimaginables. En el ámbito laboral, Italia es un importante consumidor de tecnología mexicana, y cada vez más italianos visitan nuestro país. Pero la razón más convincente para aprender italiano es su rica cultura: su gastronomía es celebrada mundialmente, y su influencia en el arte, la moda y la música es indiscutible. Sumérgete en la lengua de una de las culturas más fascinantes del mundo y descubre todo lo que tiene para ofrecer.",
+    },
+    {
+        number: "4",
+        name: "Usamos la última tecnología para reforzar tu conocimiento",
+        color: "#456A89",
+        description:
+            "Para aprender un nuevo idioma necesitas de un maestro que te dedique tiempo.",
+    },
+];
+---
+<section class="whyus-container">
+    {
+        WHYUS.map((why) => (
+            <div class="whyus-card">
+                <div class="numbered">
+                    <div class="circle" color={why.color}>
+                        <Circle fill={why.color} />
+                        <div class="number">{why.number}</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="name">{why.name}</div>
+                    <p>{why.description}</p>
+                </div>
+            </div>
+        ))
+    }
+</section>
+``
+
+
+<style>
+.whyus-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre cada tarjeta */
+}
+
+.whyus-card {
+    display: flex;
+    align-items: center;
+    background-color: #FBF7F7;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative; /* Necesario para posicionar la clase `.numbered` */
+}
+
+.numbered {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 100px; /* Ajusta para espaciar el contenido del círculo */
+    text-align: left;
+    width: 100%;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el nombre y la descripción */
+}
+
+.whyus-card p {
+    font-size: 18px;
+}
+
+
+</style>
