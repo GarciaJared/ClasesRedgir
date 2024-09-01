@@ -1,0 +1,90 @@
+---
+import Circle from "../icons/circle.astro";
+const LANGUAGES = [
+    {
+        number: "1",
+        name: "Francés",
+        color: "#456A89",
+        description:
+            "Si siempre te ha parecido romántico el francés, ahora podrás hablarlo con confianza. Francia es un destino de ensueño para muchos, y hablar el idioma te permitirá disfrutar de su cultura, arte y gastronomía al máximo. Además, el francés es una lengua oficial en muchos organismos internacionales, abriendo oportunidades laborales en todo el mundo.",
+    },
+    {
+        number: "2",
+        name: "Inglés",
+        color: "#894545",
+        description:
+            "El inglés es el idioma universal del mundo moderno. Hablar inglés te permitirá disfrutar de películas y series en su idioma original, comunicarte con personas de todo el mundo y acceder a un sinfín de recursos educativos y laborales. Es una herramienta esencial para viajar y trabajar en un entorno globalizado.",
+    },
+    {
+        number: "3",
+        name: "Italiano",
+        color: "#458956",
+        description:
+            "Aprender italiano puede abrirte puertas inimaginables. En el ámbito laboral, Italia es un importante consumidor de tecnología mexicana, y cada vez más italianos visitan nuestro país. Pero la razón más convincente para aprender italiano es su rica cultura: su gastronomía es celebrada mundialmente, y su influencia en el arte, la moda y la música es indiscutible. Sumérgete en la lengua de una de las culturas más fascinantes del mundo y descubre todo lo que tiene para ofrecer.",
+    },
+];
+---
+
+<section>
+    <div class="graph">
+        {
+            LANGUAGES.map((lang) => (
+                <div class="language-item">
+                    <div class="circle" color={lang.color} >
+                        <Circle
+                            class="circle"
+                            fill={lang.color} 
+                        />
+                        <div class="number">{lang.number}</div>
+                        <div class="name">{lang.name}</div>
+                    </div>
+                    <p>{lang.description}</p>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .graph {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Space between each language item */
+    }
+
+    .language-item {
+        display: flex;
+        align-items: center;
+    }
+    .language-item p {
+        font-size: 18px;
+    }
+
+    .circle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100px; /* Adjust size as needed */
+        height: 100px; /* Adjust size as needed */
+        position: relative;
+        margin-right: 20px; /* Space between circle and description */
+    }
+
+    .number {
+        position: absolute;
+        top: -60px; /* Adjust positioning as needed */
+        left: -20px; /* Moves the number to the left of the circle */
+        font-size: 100px; /* Adjust font size as needed */
+        font-weight: bold;
+    }
+
+    .name {
+        position: absolute;
+        bottom: 10px; /* Adjust positioning as needed */
+        font-size: 24px; /* Adjust font size as needed */
+        right: -20px;
+        text-align: center;
+        width: 100%; /* Ensure the name is centered within the circle */
+    }
+</style>
