@@ -1,0 +1,117 @@
+---
+import Checkicon from "../icons/checkicon.astro";
+const advantages = [
+    {
+        description:
+            "Aprenderás gramática, escritura, pronunciación, comprención lectora y escucha.",
+    },
+    {
+        description:
+            "Te proporcionaremos guías de estudio, temarios, ejercicios de escucha, hojas de ejercicios gramaticales, lecturas sugeridas .Te resolvemos las dudas que tengas.",
+    },
+    {
+        description:
+            "Hacemos los idiomas accesibles para ti, contamos con becas, promociones y facilidades de pago. Contactate con nosotros y pregunta de nuestras ofertas.",
+    },
+    {
+        description: "Horario flexible.",
+    },
+];
+---
+
+<section class="how-we-work">
+    <div class="title">
+        <h2>Nuestra forma de trabajo</h2>
+    </div>
+    <div class="explanation">
+        <p>
+            Nuestro curso se divide en 5 módulos. Cada uno tiene un total de 25
+            horas en los cuales aprenderás los temas selectos para que te
+            encamines a realizar un proyecto totalmente acomodado a ti, en el
+            cual aplicarás TODO el conocimiento visto que te ayudará a
+            prepararte para el examen final del módulo.
+        </p>
+    </div>
+    <div class="more-info-card">
+        {
+            advantages.map((why) => (
+                <div class="whyus-card">
+                    <div class="numbered">
+                        <div class="checkicon">
+                            <Checkicon />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>{why.description}</p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+.how-we-work {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.title h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.explanation p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.more-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.whyus-card {
+    display: flex;
+    align-items: center;
+    background-color: #FBF7F7;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.numbered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.checkicon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-left: 10px;
+}
+
+</style>
+
