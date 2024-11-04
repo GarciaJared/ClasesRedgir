@@ -1,0 +1,91 @@
+---
+import Usa from "../icons/usa.astro";
+import Italy from "../icons/Italy.astro";
+import France from "../icons/france.astro";
+const Languages = [
+    {
+        txt: "Parla l'italiano!",
+    },
+    { txt: "Parle le Français!" },
+    {
+        txt: "Speak English today!",
+    },
+];
+---
+
+<section class="freeclass">
+    <div class="title">
+        <h2>¡Clase prueba gratuita!</h2>
+    </div>
+    <div class="languages">
+        {
+            Languages.map((lng, index) => (
+                <div class={`language ${index % 2 === 0 ? "left" : "right"}`}>
+                    <div class="icon">
+                        {index === 0 ? (
+                            <Italy width="250" height="250" />
+                        ) : index === 1 ? (
+                            <France width="250" height="250" />
+                        ) : (
+                            <Usa width="250" height="250" />
+                        )}
+                    </div>
+                    <div class="txt">{lng.txt}</div>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .freeclass {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .title h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .languages {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .language {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .language.left {
+        flex-direction: row; /* Icon on the left, text on the right */
+    }
+
+    .language.right {
+        flex-direction: row-reverse; /* Icon on the right, text on the left */
+    }
+
+    .icon {
+        width: auto;
+        height: auto;
+    }
+
+    .txt {
+        font-size: 18px;
+        color: #333;
+    }
+</style>
