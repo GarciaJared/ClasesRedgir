@@ -1,60 +1,51 @@
 ---
 import Circleirregular from "../icons/circleirregular.astro";
 import CheckIcon from "../icons/checkicon.astro";
-const { title, description } = Astro.props;
+const { title } = Astro.props;
 const ADVANTAGES = [
-    { description: "Si planeas viajar necesitas comunicarte." },
+    { description: "Si planeas viajar, necesitas comunicarte." },
     {
         description:
-            "Si siempre te pareció romantico el francés ahora podras hablarlo.",
+            "Si te parece romántico el francés ahora podrás hablarlo.",
     },
     {
         description:
-            "Si siempre te gustó la comida italiana y su música, te encantará hablar el idioma.",
+            "Si te gusta la cultura italiana, te encantará hablar italiano.",
     },
-    { description: "Disfruta las películas en inglés en su idioma original." },
+    { description: "Disfruta las películas en su idioma original." },
 ];
 ---
 
-<section>
+<section class="hero">
     <div class="background">
         <Circleirregular width="100%" height="100%" fill="#456A89" />
     </div>
     <div class="content">
-        <div class="title">
-            <h1>{title}</h1>
-        </div>
-        <div class="advantages">
+        <h1 class="title">{title}</h1>
+        <ul class="advantages">
             {
                 ADVANTAGES.map((adv) => (
-                    <>
-                        <li>
-                            <CheckIcon
-                                width="24"
-                                height="24"
-                                fill="var(--white)"
-                            />
-                            {adv.description}
-                        </li>
-                    </>
+                    <li>
+                        <CheckIcon width="30" height="30" fill="var(--white)" />
+                        {adv.description}
+                    </li>
                 ))
             }
-            <ul class="advantages-ul"></ul>
-        </div>
+        </ul>
     </div>
 </section>
 
 <style>
-    section {
+    .hero {
         position: relative;
-        width: 100%;
-        height: auto;
+        min-height: 60vh;
         padding: 2em;
-        color: var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        color: var(--white);
         overflow: hidden;
     }
     .background {
@@ -70,18 +61,73 @@ const ADVANTAGES = [
     .content {
         position: relative;
         z-index: 1;
-        text-align: center;
+        max-width: 900px;
+        padding: 1em;
     }
     .title {
+        font-size: 2.5em;
         margin-bottom: 1em;
+        line-height: 1.2;
     }
     .advantages {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
         list-style: none;
         padding: 0;
+        margin: 0 auto;
+        max-width: 600px;
     }
     .advantages li {
-        margin-bottom: 1em;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        font-size: 1em;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 1024px) {
+        .background {
+            height: 400px; /* Scale background for medium screens */
+        }
+        .title {
+            font-size: 2em;
+        }
+        .advantages {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .background {
+            height: 300px;
+            width: 90%;
+        }
+        .hero {
+            padding: 1.5em;
+        }
+        .title {
+            font-size: 1.8em;
+        }
+        .advantages li {
+            font-size: 0.9em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .background {
+            height: 200px;
+            width: 80%;
+            opacity: 0.4;
+        }
+        .hero {
+            padding: 1em;
+        }
+        .title {
+            font-size: 1.5em;
+        }
+        .advantages li {
+            font-size: 0.8em;
+        }
     }
 </style>

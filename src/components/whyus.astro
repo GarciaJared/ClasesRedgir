@@ -31,7 +31,11 @@ const WHYUS = [
     },
 ];
 ---
+
 <section class="whyus-container">
+    <div class="title">
+        <h2>¿Por qué nosotros?</h2>
+    </div>
     {
         WHYUS.map((why) => (
             <div class="whyus-card">
@@ -51,66 +55,70 @@ const WHYUS = [
 </section>
 
 <style>
-.whyus-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espacio entre cada tarjeta */
-}
+    .whyus-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Espacio entre cada tarjeta */
+    }
+    .title h2 {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .whyus-card {
+        display: flex;
+        align-items: center;
+        background-color: #fbf7f7;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative; /* Necesario para posicionar la clase `.numbered` */
+    }
 
-.whyus-card {
-    display: flex;
-    align-items: center;
-    background-color: #FBF7F7;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative; /* Necesario para posicionar la clase `.numbered` */
-}
+    .numbered {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
 
-.numbered {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
+    .circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 65px;
+        position: relative;
+        border-radius: 50%;
+    }
 
-.circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    position: relative;
-    border-radius: 50%;
-}
+    .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
 
-.number {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-}
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 100px; /* Ajusta para espaciar el contenido del círculo */
+        text-align: left;
+        width: 100%;
+    }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-left: 100px; /* Ajusta para espaciar el contenido del círculo */
-    text-align: left;
-    width: 100%;
-}
+    .name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px; /* Espacio entre el nombre y la descripción */
+    }
 
-.name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px; /* Espacio entre el nombre y la descripción */
-}
-
-.whyus-card p {
-    font-size: 18px;
-}
-
-
+    .whyus-card p {
+        font-size: 18px;
+    }
 </style>

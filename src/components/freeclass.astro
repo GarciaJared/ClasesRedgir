@@ -23,11 +23,11 @@ const Languages = [
                 <div class={`language ${index % 2 === 0 ? "left" : "right"}`}>
                     <div class="icon">
                         {index === 0 ? (
-                            <Italy width="250" height="250" />
+                            <Italy width="150" height="150" />
                         ) : index === 1 ? (
-                            <France width="250" height="250" />
+                            <France width="150" height="150" />
                         ) : (
-                            <Usa width="250" height="250" />
+                            <Usa width="150" height="150" />
                         )}
                     </div>
                     <div class="txt">{lng.txt}</div>
@@ -42,11 +42,12 @@ const Languages = [
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 50px;
+        gap: 30px;
+        padding: 2em;
     }
 
     .title h2 {
-        font-size: 30px;
+        font-size: 2rem;
         font-weight: bold;
         color: #333;
         text-align: center;
@@ -80,12 +81,62 @@ const Languages = [
     }
 
     .icon {
-        width: auto;
-        height: auto;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .txt {
-        font-size: 18px;
+        font-size: 1rem;
         color: #333;
+        text-align: center;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        .title h2 {
+            font-size: 1.8rem;
+        }
+
+        .language {
+            max-width: 90%; /* Reduce the width on smaller screens */
+            padding: 10px;
+            gap: 8px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px; /* Scale down icons */
+        }
+
+        .txt {
+            font-size: 0.9rem; /* Slightly smaller text size */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .title h2 {
+            font-size: 1.5rem; /* Smaller font for mobile */
+        }
+
+        .languages {
+            gap: 10px;
+        }
+
+        .language {
+            flex-direction: column; /* Stack icon and text vertically */
+            text-align: center;
+        }
+
+        .icon {
+            width: 150px;
+            height: 150px; /* Further scale down icons */
+        }
+
+        .txt {
+            font-size: 0.8rem; /* Adjust text size for mobile */
+        }
     }
 </style>
