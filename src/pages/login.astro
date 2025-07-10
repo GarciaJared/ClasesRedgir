@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+        }
+        input {
+            padding: 0.5em;
+        }
+        button {
+            padding: 0.5em 1em;
+            background: #456A89;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <Header />
+    <main>
+        <h1>Login</h1>
+        <form>
+            <label>
+                Email
+                <input type="email" name="email" required />
+            </label>
+            <label>
+                Password
+                <input type="password" name="password" required />
+            </label>
+            <button type="submit">Log In</button>
+        </form>
+    </main>
+    <Footer />
+</body>
+</html>
